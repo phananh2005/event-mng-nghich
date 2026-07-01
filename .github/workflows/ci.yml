@@ -56,13 +56,4 @@ jobs:
           username: ${{ secrets.SERVER_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
-            # Đăng nhập Docker Hub
-            echo "${{ secrets.D_PASSWORD }}" | docker login -u "${{ secrets.D_USERNAME }}" --password-stdin
-            
-            # Di chuyển vào thư mục dự án
-            cd ~/deploy
-            
-            # Sử dụng lệnh docker-compose cũ (có gạch nối)
-            export TAG=${{ github.sha }}
-            docker-compose pull
-            docker-compose up -d
+            ~/deploy/update.sh "${{ secrets.D_USERNAME }}" "${{ secrets.D_PASSWORD }}" "${{ github.sha }}"
