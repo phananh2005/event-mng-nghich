@@ -17,7 +17,7 @@ import java.util.*;
 @RequiredArgsConstructor
 public class BlogPostSeeder {
 
-    private static final int POST_COUNT = 23;
+    private static final int POST_COUNT = 25;
 
     private final BlogPostRepository blogPostRepository;
     private final BlogTagRepository blogTagRepository;
